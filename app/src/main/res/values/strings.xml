@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SAMS.QR</string>
+    <string name="main_fragment_scanner">QR Scanner</string>
+    <string name="main_fragment_home">Dashboard</string>
+    <string name="main_fragment_records">Records</string>
+    <string name="activity_attendance_profile">Student Attendance Profile</string>
+    <string name="activity_explore_categories">Explore</string>
+    <string name="activity_export_categories">Export Record</string>
+    <string name="QRValidationKey">000000</string>
+    <string name="attendance_logs_database_name">attendancedb.db</string>
+    <string name="student_info_database_name">studentdb.db</string>
+</resources>
