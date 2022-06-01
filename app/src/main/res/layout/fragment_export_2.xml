@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".ExportSubFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_recyclerview"
+        android:padding="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20dp">
+
+            <Button
+                android:id="@+id/export_daily_attendance"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/mediumsea_green_bright"
+                android:text="Daily Attendance"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:cornerRadius="30dp" />
+
+            <Button
+                android:id="@+id/export_class_attendance"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/salmon"
+                android:shadowRadius="20"
+                android:text="Class Attendance"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:cornerRadius="30dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

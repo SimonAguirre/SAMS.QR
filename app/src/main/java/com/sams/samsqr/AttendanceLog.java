@@ -4,22 +4,29 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class AttendanceLog {
-    private String timestamp;
+    private Timestamp timestamp;
     private String fullname;
     private int id;
 
 
-    public AttendanceLog(int id, String timestamp, String fullname) {
+    //When reading a log
+    public AttendanceLog(int id, Timestamp timestamp, String fullname) {
         this.timestamp = timestamp;
         this.fullname = fullname;
         this.id = id;
     }
 
-    public String getTimestamp() {
+    //When creating  a log
+    public AttendanceLog(String fullname,Timestamp timestamp) {
+        this.fullname = fullname;
+        this.timestamp = timestamp;
+    }
+
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -39,16 +46,10 @@ public class AttendanceLog {
         this.id = id;
     }
 
-    public AttendanceLog(String fullname,String timestamp) {
-        this.fullname = fullname;
-        this.timestamp = timestamp;
-    }
-
     public  String getTime(){;
-        Timestamp timestamp2 = Timestamp.valueOf(timestamp);
-        String pattern = "hh-mm a";
+        String pattern = "hh:mm a";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String time = simpleDateFormat.format(timestamp2);
+        String time = simpleDateFormat.format(timestamp);
         return time;
     }
 }

@@ -36,6 +36,7 @@ import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -86,7 +87,8 @@ public class ScannerFragment extends Fragment implements ActivityCompat.OnReques
                                 inputProcessor = new InputProcessor(result.getText());
                                 //Create the date params for today
                                 String today = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault()).format(new Date());
-                                attendanceLog = new AttendanceLog(inputProcessor.getFull_name(),today);
+                                Timestamp today_timestamp = Timestamp.valueOf(today);
+                                attendanceLog = new AttendanceLog(inputProcessor.getFull_name(),today_timestamp);
                                 boolean success = databaseHelper.addOne(attendanceLog);
                                 showDialog(success, inputProcessor.getFull_name());
                             } catch (Exception e){
@@ -164,7 +166,7 @@ public class ScannerFragment extends Fragment implements ActivityCompat.OnReques
         } else {
             statusHolder.setImageResource(R.drawable.cross_gradient);
             descriptionHolder.setText(text);
-            titleHolder.setText("Fatal Error");
+            titleHolder.setText("Error");
             titleHolder.setTypeface(null,Typeface.BOLD);
             backgroundHolder.setBackground(getResources().getDrawable(R.drawable.bg_dialog_error));
         }

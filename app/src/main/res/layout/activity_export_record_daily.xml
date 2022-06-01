@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ExportRecordDaily">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+        <FrameLayout
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp">
+            <TextView
+                android:id="@+id/actionbar_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elegantTextHeight="true"
+                android:text="Export Record"
+                android:textAlignment="center"
+                android:textColor="@color/mediumsea_green"
+                android:textIsSelectable="false"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/profile_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/action_bar"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/export_daily_attendance_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center"
+                android:text="Attendance of the Day"
+                android:textColor="@color/charcoal"
+                android:textSize="25sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top|center"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/bg_export_daily_record">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Since this part is still under development
+the export option below will export all the contents of the available Attendance for today.
+Thank you for understanding!"
+                    android:textColor="@color/light_gray"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/export_daily_attendance_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/mediumsea_green"
+                    android:outlineAmbientShadowColor="@android:color/transparent"
+                    android:text="Export"
+                    app:cornerRadius="40dp" />
+            </RelativeLayout>
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

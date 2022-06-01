@@ -4,6 +4,7 @@
     package="com.sams.samsqr">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SAMSQR"
         tools:targetApi="31">
+        <activity
+            android:name=".ExportRecordDaily"
+            android:exported="false" />
         <activity
             android:name=".StudentProfileSummary"
             android:exported="false" />

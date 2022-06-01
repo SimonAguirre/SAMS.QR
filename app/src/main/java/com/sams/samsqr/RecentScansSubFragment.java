@@ -10,7 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,15 +29,16 @@ public class RecentScansSubFragment extends Fragment {
         //Bind the activity to ButterKnife
         ButterKnife.bind(getActivity());
         int[] avatars = {
-                R.drawable.avatar_1,R.drawable.avatar_2,R.drawable.avatar_3,
-                R.drawable.avatar_4,R.drawable.avatar_5,R.drawable.avatar_6
+                R.drawable.avatar_1, R.drawable.avatar_2, R.drawable.avatar_3,
+                R.drawable.avatar_4, R.drawable.avatar_5, R.drawable.avatar_6
         };
-
         //Create Database Adapter
-        DatabaseHelper databaseHelper = new DatabaseHelper(getActivity(),getString(R.string.attendance_logs_database_name));
+        DatabaseHelper databaseHelper = new DatabaseHelper(getActivity(), getString(R.string.attendance_logs_database_name));
+        //Create time filter
+        String date_today = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
         //Create attendance log list
-        attendanceLogList = databaseHelper.getAll();
+        attendanceLogList = databaseHelper.getAll(date_today+" 00:00:00", date_today+" 23:59:59");
 //        attendanceLogList = databaseHelper.getAll(today+" 00:00:00",today+" 23:59:59");//format YYYY-MM-DD
         //Create recycle viewer UI instance
         RecyclerView recyclerView_recentScans = (RecyclerView)view.findViewById(R.id.records_today_recycleview);
