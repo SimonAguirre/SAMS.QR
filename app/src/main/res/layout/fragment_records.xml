@@ -8,35 +8,26 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/record_tabs"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_width="328dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:padding="10dp"
         android:background="@drawable/bg_tabs"
-        android:outlineSpotShadowColor="@android:color/transparent"
+        android:outlineAmbientShadowColor="@android:color/transparent"
+        android:padding="0dp"
+        android:textAlignment="center"
+        app:itemBackground="@drawable/bg_tabs_icon_selector"
+        app:itemPaddingBottom="13dp"
+        app:itemTextAppearanceActive="?android:attr/textAppearanceSearchResultSubtitle"
+        app:itemTextAppearanceInactive="?android:attr/textAppearanceSearchResultSubtitle"
+        app:itemTextColor="@color/tabs_text_selection"
         app:menu="@menu/records_tabs_menu" />
 
-    <RelativeLayout
-        android:id="@+id/recent_records"
+    <FrameLayout
+        android:id="@+id/recordsFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/record_tabs"
-        android:padding="10dp">
+        android:layout_below="@+id/record_tabs">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/records_today_recycleview"
-                />
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
+    </FrameLayout>
 </RelativeLayout>

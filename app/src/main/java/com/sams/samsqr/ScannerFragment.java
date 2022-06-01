@@ -36,6 +36,9 @@ import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -81,11 +84,13 @@ public class ScannerFragment extends Fragment implements ActivityCompat.OnReques
                             InputProcessor inputProcessor;
                             try{
                                 inputProcessor = new InputProcessor(result.getText());
-                                attendanceLog = new AttendanceLog(inputProcessor.getFull_name());
+                                //Create the date params for today
+                                String today = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault()).format(new Date());
+                                attendanceLog = new AttendanceLog(inputProcessor.getFull_name(),today);
                                 boolean success = databaseHelper.addOne(attendanceLog);
                                 showDialog(success, inputProcessor.getFull_name());
                             } catch (Exception e){
-                                showDialog(false,e.toString());
+                                showDialog(false,e.getMessage());
                             }
                         }else{
                             showDialog(false,"Invalid QR Code");
@@ -158,8 +163,8 @@ public class ScannerFragment extends Fragment implements ActivityCompat.OnReques
             backgroundHolder.setBackground(getResources().getDrawable(R.drawable.bg_diaglog_success));
         } else {
             statusHolder.setImageResource(R.drawable.cross_gradient);
-            descriptionHolder.setText("Please use the QR Code provided by the school");
-            titleHolder.setText("Invalid QR Code!");
+            descriptionHolder.setText(text);
+            titleHolder.setText("Fatal Error");
             titleHolder.setTypeface(null,Typeface.BOLD);
             backgroundHolder.setBackground(getResources().getDrawable(R.drawable.bg_dialog_error));
         }

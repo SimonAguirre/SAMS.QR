@@ -26,7 +26,6 @@
                 android:id="@+id/actionbar_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:elegantTextHeight="true"
                 android:text="@string/main_fragment_home"
@@ -42,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/action_bar"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 
@@ -51,9 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
-        app:itemIconSize="20dp"
-        app:itemPaddingTop="10dp"
-        app:itemPaddingBottom="15dp"
+        android:background="@drawable/bg_bottom_nav"
+        app:itemIconSize="22dp"
+        app:itemPaddingTop="12dp"
+        app:itemPaddingBottom="10dp"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:menu="@menu/main_nav_bar_menu" />
 

@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "ATTENDANCE_LOG_TABLE";
     public static final String COLUMN_ID = "ID";
     public static final String COLUMN_STUDENT_NAME = "STUDENT_NAME";
-    public static final String COLUMN_TIMESTAMP = "TIMESTAMP";
+    public static final String COLUMN_TIMESTAMP = "TEXT";
     public static Context CONTEXT;
     public static String DATABASE_NAME;
 
@@ -32,7 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String CREATE_TABLE_STATEMENT = "CREATE TABLE " + TABLE_NAME + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_STUDENT_NAME + " TEXT, " +
-                COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
+                COLUMN_TIMESTAMP + " TEXT)";
         sqLiteDatabase.execSQL(CREATE_TABLE_STATEMENT);
     }
     @Override
@@ -44,8 +44,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_STUDENT_NAME, attendanceLog.getFullname());
+        cv.put(COLUMN_TIMESTAMP, attendanceLog.getTimestamp());
+
         long insert = db.insert(TABLE_NAME, null, cv);
-        if (insert == -1){
+
+        if (insert <= -1){
             return false;
         } else {
             return true;
@@ -63,23 +66,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do{
                 int attendanceID = cursor.getInt(0);
                 String name = cursor.getString(1);
-                int timestamp = cursor.getInt(2);
+                String timestamp = cursor.getString(2);
 
                 AttendanceLog attendanceLog = new AttendanceLog(attendanceID,timestamp,name);
                 returnList.add(attendanceLog);
             }while (cursor.moveToNext());
         } else {
-            Toast.makeText(CONTEXT, "Empty Database!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(CONTEXT, "Empty",Toast.LENGTH_SHORT).show();
         }
         cursor.close();
         db.close();
         return returnList;
     }
 
-    public List<AttendanceLog> getAll(int time1, int time2){
+    public List<AttendanceLog> getAll(String date1, String date2){ //format YYYY-MM-DD
         List<AttendanceLog> returnList = new ArrayList<>();
         //get all data from the database
-        String QUERY_STATEMENT = "SELECT "+COLUMN_TIMESTAMP+" FROM "+TABLE_NAME+" WHERE "+COLUMN_TIMESTAMP+"  BETWEEN "+time1+" AND "+time2+";";
+        String QUERY_STATEMENT = "SELECT * FROM "+TABLE_NAME+" WHERE "+COLUMN_TIMESTAMP+" BETWEEN '"+date1+"' AND '"+date2+"' ;";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(QUERY_STATEMENT,null);
         if (cursor.moveToFirst()){
@@ -87,15 +90,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do{
                 int attendanceID = cursor.getInt(0);
                 String name = cursor.getString(1);
-                int timestamp = cursor.getInt(2);
+                String timestamp = cursor.getString(2);
 
                 AttendanceLog attendanceLog = new AttendanceLog(attendanceID,timestamp,name);
                 returnList.add(attendanceLog);
             }while (cursor.moveToNext());
         } else {
-            Toast.makeText(CONTEXT, "Empty Database!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(CONTEXT, "Empty",Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(CONTEXT,cursor.getInt(2),Toast.LENGTH_SHORT).show();
         cursor.close();
         db.close();
         return returnList;

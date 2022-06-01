@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SAMSQR" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.SAMSQR" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/slate_blue</item>
         <item name="colorPrimaryVariant">@color/lightsteel_blue</item>
@@ -21,5 +21,6 @@
             @anim/slide_bottom
         </item>
     </style>
+
 
 </resources>

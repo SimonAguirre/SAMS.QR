@@ -9,4 +9,9 @@
     <string name="QRValidationKey">000000</string>
     <string name="attendance_logs_database_name">attendancedb.db</string>
     <string name="student_info_database_name">studentdb.db</string>
+    <string name="today">TODAY</string>
+    <string name="explore">EXPLORE</string>
+    <string name="export">EXPORT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

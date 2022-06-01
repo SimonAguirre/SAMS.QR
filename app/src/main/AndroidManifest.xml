@@ -16,6 +16,9 @@
         android:theme="@style/Theme.SAMSQR"
         tools:targetApi="31">
         <activity
+            android:name=".StudentProfileSummary"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:noHistory="false">

@@ -66,18 +66,19 @@ public class InputProcessor {
 
 
         //generate info and test nullables
+        if (name_suffix.equals("null")) {
+            name_suffix = "";
+        }
          if (middle_name.equals("null")) {
             middle_name = "";
             this.middle_initial = ' ';
             this.full_name = first_name+" "+last_name+" "+name_suffix;
         } else {
             this.middle_initial = middle_name.toCharArray()[0];
-             this.full_name = first_name+" "+middle_initial+". "+last_name+" "+name_suffix;
+            this.full_name = first_name+" "+middle_initial+". "+last_name+" "+name_suffix;
         }
 
-        if (name_suffix.equals("null")) {
-            name_suffix = "";
-        }
+
 
         //end generate info
     }
