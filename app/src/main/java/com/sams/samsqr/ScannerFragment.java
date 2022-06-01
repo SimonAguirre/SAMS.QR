@@ -86,7 +86,7 @@ public class ScannerFragment extends Fragment implements ActivityCompat.OnReques
                             try{
                                 inputProcessor = new InputProcessor(result.getText());
                                 //Create the date params for today
-                                String today = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault()).format(new Date());
+                                String today = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
                                 Timestamp today_timestamp = Timestamp.valueOf(today);
                                 attendanceLog = new AttendanceLog(inputProcessor.getFull_name(),today_timestamp);
                                 boolean success = databaseHelper.addOne(attendanceLog);

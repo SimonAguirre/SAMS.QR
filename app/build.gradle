@@ -11,7 +11,7 @@ android {
         targetSdk 32
         versionCode 2
         versionName "1.1"
-        applicationId "solidify.sams.qr"
+        applicationId "com.sams.qr"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

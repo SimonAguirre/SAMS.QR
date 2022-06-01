@@ -39,7 +39,6 @@ public class RecentScansSubFragment extends Fragment {
 
         //Create attendance log list
         attendanceLogList = databaseHelper.getAll(date_today+" 00:00:00", date_today+" 23:59:59");
-//        attendanceLogList = databaseHelper.getAll(today+" 00:00:00",today+" 23:59:59");//format YYYY-MM-DD
         //Create recycle viewer UI instance
         RecyclerView recyclerView_recentScans = (RecyclerView)view.findViewById(R.id.records_today_recycleview);
         recyclerView_recentScans.setHasFixedSize(true);

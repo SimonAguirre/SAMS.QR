@@ -141,7 +141,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             PrintWriter printWriter = null;
             try
             {
-                String today = new SimpleDateFormat("MMM dd yyyy", Locale.getDefault()).format(new Date());
+                String today = new SimpleDateFormat("MMM dd HH a", Locale.getDefault()).format(new Date());
                 file = new File(exportDir, today+" Attendance.csv");
                 file.createNewFile();
                 printWriter = new PrintWriter(new FileWriter(file));
