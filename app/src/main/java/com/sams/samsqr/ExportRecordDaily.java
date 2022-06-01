@@ -35,7 +35,7 @@ public class ExportRecordDaily extends AppCompatActivity {
             public void onClick(View view) {
                 //Create Database Adapter
                 DatabaseHelper databaseHelper = new DatabaseHelper(ExportRecordDaily.this, getString(R.string.attendance_logs_database_name));
-                String date_today = new SimpleDateFormat("MMM_dd_yyyy", Locale.getDefault()).format(new Date());
+                String date_today = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                 boolean b = databaseHelper.export_csv(date_today+" 00:00:00", date_today+" 23:59:59");
                 if (b) {
                     showDialog(true,"File exported on Device Downloads Folder");
