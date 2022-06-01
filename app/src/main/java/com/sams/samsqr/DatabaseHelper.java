@@ -141,7 +141,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             PrintWriter printWriter = null;
             try
             {
-                String today = new SimpleDateFormat("MMM_dd_yyyy", Locale.getDefault()).format(new Date());
+                String today = new SimpleDateFormat("MMM dd yyyy", Locale.getDefault()).format(new Date());
                 file = new File(exportDir, today+" Attendance.csv");
                 file.createNewFile();
                 printWriter = new PrintWriter(new FileWriter(file));
@@ -156,7 +156,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                  * containing all records of the table (all fields).
                  * The code of this class is omitted for brevity.
                  */
-                Cursor curCSV = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+COLUMN_TIMESTAMP+" BETWEEN '"+time1+"' AND '"+time2+"' ;", null);
+                Cursor curCSV = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+COLUMN_TIMESTAMP+" BETWEEN '"+time1+"' AND '"+time2+"';", null);
                 //Write the name of the table and the name of the columns (comma separated values) in the .csv file.
                 printWriter.println("ATTENDANCE ID,STUDENT NAME, TIME IN");
 
