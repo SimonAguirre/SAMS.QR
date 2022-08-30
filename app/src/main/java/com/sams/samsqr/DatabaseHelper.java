@@ -17,7 +17,6 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -141,8 +140,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             PrintWriter printWriter = null;
             try
             {
-                String today = new SimpleDateFormat("MMM dd HH a", Locale.getDefault()).format(new Date());
-                file = new File(exportDir, today+" Attendance.csv");
+//                String today = new SimpleDateFormat("MMM dd", Locale.getDefault()).format(new Date());
+                file = new File(exportDir, "attendance.csv");
                 file.createNewFile();
                 printWriter = new PrintWriter(new FileWriter(file));
 
